@@ -7,28 +7,28 @@ const HowItWorks = () => {
     {
       number: 1,
       title: 'Enroll in a Cohort',
-      description: 'Choose your course and join a cohort that fits your schedule.',
+      description: 'AI matches you with the perfect learning path.',
       icon: UserPlus,
       imagePosition: 'left',
     },
     {
       number: 2,
       title: 'Attend Live Classes',
-      description: 'Participate in interactive live sessions with expert instructors.',
+      description: 'AI-generated content adapts to your pace.',
       icon: Video,
       imagePosition: 'right',
     },
     {
       number: 3,
       title: 'Complete Assignments',
-      description: 'Practice what you learn with hands-on projects and quizzes.',
+      description: 'Smart assignments adjust difficulty automatically.',
       icon: FileCheck,
       imagePosition: 'left',
     },
     {
       number: 4,
       title: 'Track Your Progress',
-      description: 'Monitor your growth with detailed performance analytics.',
+      description: 'AI tracks progress and suggests improvements.',
       icon: TrendingUp,
       imagePosition: 'right',
     },
@@ -42,11 +42,11 @@ const HowItWorks = () => {
 
       <Container>
         <div className="text-center mb-16">
-          <h2 className="text-4xl font-bold mb-4">
-            How Learning Works at Nomolabs
+          <h2 className="text-3xl font-bold mb-4">
+            How It Works
           </h2>
-          <p className="text-[var(--color-neutral-gray-500)] max-w-2xl mx-auto">
-            Our cohort-based approach ensures you learn alongside peers and get personalized attention.
+          <p className="text-[var(--color-neutral-gray-500)] max-w-xl mx-auto">
+            AI adapts to your learning style for optimal results.
           </p>
         </div>
 

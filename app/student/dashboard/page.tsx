@@ -62,36 +62,30 @@ export default function StudentDashboard() {
   ];
 
   const recentActivity = [
-    { id: '1', action: 'Quiz submitted: JavaScript Fundamentals', time: '2 hours ago' },
-    { id: '2', action: 'Class attended: React Hooks', time: '1 day ago' },
-    { id: '3', action: 'Material downloaded: Week 3 Notes', time: '2 days ago' },
-    { id: '4', action: 'Assignment submitted: Personal Portfolio', time: '3 days ago' },
-    { id: '5', action: 'Class attended: State Management', time: '4 days ago' },
+    { id: '1', action: 'Quiz submitted', time: '2h ago' },
+    { id: '2', action: 'Class attended', time: '1d ago' },
+    { id: '3', action: 'Material downloaded', time: '2d ago' },
   ];
 
   const quickActions = [
     {
       icon: FileCheck,
-      title: 'View Study Materials',
-      description: 'Access course content',
+      title: 'Library',
       link: '/student/library',
     },
     {
       icon: Video,
-      title: 'Take Pending Quiz',
-      description: '2 quizzes available',
+      title: 'Quizzes',
       link: '/student/quizzes',
     },
     {
       icon: MessageCircle,
-      title: 'Message Instructor',
-      description: 'Get help',
+      title: 'Messages',
       link: '#',
     },
     {
       icon: Calendar,
-      title: 'Check Schedule',
-      description: 'View upcoming classes',
+      title: 'Schedule',
       link: '/student/schedule',
     },
   ];
@@ -105,13 +99,8 @@ export default function StudentDashboard() {
     >
       <div className="p-8 bg-slate-50 min-h-screen">
         {/* Welcome Section */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold mb-2 text-slate-800">
-            Welcome back, {studentData.name.split(' ')[0]}!
-          </h1>
-          <p className="text-slate-600 text-lg">
-            Here&apos;s your learning progress and upcoming activities.
-          </p>
+        <div className="mb-6">
+          <h1 className="text-lg font-semibold text-slate-800">Dashboard</h1>
         </div>
 
         {/* Quick Stats */}
@@ -122,7 +111,7 @@ export default function StudentDashboard() {
         />
 
         {/* Main Dashboard Grid */}
-        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-8">
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-6 mb-6">
           {/* Upcoming Classes */}
           <UpcomingClassesWidget classes={upcomingClasses} />
 
@@ -132,13 +121,8 @@ export default function StudentDashboard() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
           {/* Attendance Overview */}
-          <Card className="border border-slate-200">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-emerald-500 to-teal-500 rounded-lg flex items-center justify-center">
-                <Award size={20} className="text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-slate-800">Attendance Overview</h3>
-            </div>
+          <Card className="bg-white/80 backdrop-blur-sm border border-slate-100 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-800 mb-4">Attendance</h3>
             <div className="text-center">
               {/* Circular Progress */}
               <div className="relative w-36 h-36 mx-auto mb-4">
@@ -171,13 +155,13 @@ export default function StudentDashboard() {
                 </svg>
                 <div className="absolute inset-0 flex items-center justify-center">
                   <div className="text-center">
-                    <p className="text-4xl font-bold text-emerald-600">
+                    <p className="text-3xl font-bold text-emerald-600">
                       {studentData.attendanceRate}%
                     </p>
                   </div>
                 </div>
               </div>
-              <p className="text-slate-600 mb-3 text-sm">18 of 20 classes attended</p>
+              <p className="text-slate-600 mb-2 text-sm">18/20 classes</p>
               <div className={`inline-flex items-center gap-2 px-3 py-1.5 rounded-full text-sm font-medium ${
                 studentData.attendanceRate >= 80
                   ? 'bg-emerald-100 text-emerald-700'
@@ -190,13 +174,8 @@ export default function StudentDashboard() {
           </Card>
 
           {/* Quick Actions */}
-          <Card className="border border-slate-200">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-blue-500 to-indigo-500 rounded-lg flex items-center justify-center">
-                <FileCheck size={20} className="text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-slate-800">Quick Actions</h3>
-            </div>
+          <Card className="bg-white/80 backdrop-blur-sm border border-slate-100 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-800 mb-4">Quick Actions</h3>
             <div className="space-y-2">
               {quickActions.map((action) => (
                 <a
@@ -208,8 +187,7 @@ export default function StudentDashboard() {
                     <action.icon size={18} className="text-white" />
                   </div>
                   <div className="flex-1">
-                    <p className="font-semibold text-sm text-slate-800">{action.title}</p>
-                    <p className="text-xs text-slate-500">{action.description}</p>
+                    <p className="font-medium text-sm text-slate-800">{action.title}</p>
                   </div>
                   <ChevronRight size={18} className="text-slate-400 group-hover:text-blue-600 transition-colors" />
                 </a>
@@ -218,18 +196,13 @@ export default function StudentDashboard() {
           </Card>
 
           {/* Recent Activity */}
-          <Card className="border border-slate-200">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-10 h-10 bg-gradient-to-br from-violet-500 to-purple-500 rounded-lg flex items-center justify-center">
-                <Clock size={20} className="text-white" />
-              </div>
-              <h3 className="text-xl font-semibold text-slate-800">Recent Activity</h3>
-            </div>
+          <Card className="bg-white/80 backdrop-blur-sm border border-slate-100 shadow-sm">
+            <h3 className="text-lg font-semibold text-slate-800 mb-4">Activity</h3>
             <div className="space-y-3">
               {recentActivity.map((activity) => (
                 <div
                   key={activity.id}
-                  className="pb-3 border-b border-slate-200 last:border-0 last:pb-0"
+                  className="pb-2 border-b border-slate-200 last:border-0 last:pb-0"
                 >
                   <div className="flex items-start gap-3">
                     <div className="w-2 h-2 bg-blue-500 rounded-full mt-1.5 flex-shrink-0"></div>

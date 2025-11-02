@@ -7,38 +7,38 @@ const WhyChooseUs = () => {
   const features = [
     {
       icon: Video,
-      title: 'Live Learning',
-      description: 'Interactive live classes, not pre-recorded videos.',
+      title: 'AI-Powered',
+      description: 'Content adapts to your learning style.',
       color: 'text-[var(--color-primary)]',
     },
     {
       icon: Users,
-      title: 'Expert Instructors',
-      description: 'Learn from industry professionals with years of experience.',
+      title: 'Smart Tutoring',
+      description: '24/7 AI assistance and guidance.',
       color: 'text-[var(--color-accent-orange)]',
     },
     {
       icon: Users,
-      title: 'Community Support',
-      description: 'Connect with peers and mentors throughout your journey.',
+      title: 'Peer Learning',
+      description: 'Connect with matched learning partners.',
       color: 'text-[var(--color-accent-green)]',
     },
     {
       icon: TrendingUp,
-      title: 'Performance Tracking',
-      description: 'Monitor your progress with detailed analytics and reports.',
+      title: 'Smart Analytics',
+      description: 'AI tracks and optimizes your progress.',
       color: 'text-blue-600',
     },
     {
       icon: FolderKanban,
-      title: 'Hands-on Projects',
-      description: 'Build real-world projects to showcase your skills.',
+      title: 'Adaptive Projects',
+      description: 'Projects that match your skill level.',
       color: 'text-purple-600',
     },
     {
       icon: Briefcase,
-      title: 'Career Support',
-      description: 'Get guidance on portfolio building and job applications.',
+      title: 'Career AI',
+      description: 'AI-powered career guidance and tips.',
       color: 'text-pink-600',
     },
   ];
@@ -47,11 +47,11 @@ const WhyChooseUs = () => {
     <section className="py-20 bg-white">
       <Container>
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold mb-4">
-            Why Learn with Nomolabs?
+          <h2 className="text-3xl font-bold mb-4">
+            Why Choose AI Learning?
           </h2>
-          <p className="text-[var(--color-neutral-gray-500)] max-w-2xl mx-auto">
-            We provide everything you need to succeed in your tech career journey.
+          <p className="text-[var(--color-neutral-gray-500)] max-w-xl mx-auto">
+            Personalized education that adapts to you.
           </p>
         </div>
 
