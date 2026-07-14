@@ -66,21 +66,21 @@ export default function ContactPage() {
   return (
     <>
       <Navbar />
-      <main className="py-20">
+      <main className="py-10 sm:py-16 lg:py-20">
         <Container>
           {/* Page Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold mb-4">Get in Touch</h1>
-            <p className="text-lg text-[var(--color-neutral-gray-500)] max-w-2xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Get in Touch</h1>
+            <p className="text-base sm:text-lg text-[var(--color-neutral-gray-500)] max-w-2xl mx-auto">
               Have questions? We&apos;d love to hear from you. Send us a message and we&apos;ll respond as soon as possible.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Contact Form */}
-            <div className="lg:col-span-2">
+            <div className="lg:col-span-2 order-2 lg:order-1">
               <Card>
-                <h2 className="text-2xl font-bold mb-6">Send us a Message</h2>
+                <h2 className="text-xl sm:text-2xl font-bold mb-6">Send us a Message</h2>
 
                 {submitted && (
                   <Alert type="success" dismissible className="mb-6">
@@ -142,9 +142,9 @@ export default function ContactPage() {
             </div>
 
             {/* Contact Info Sidebar */}
-            <div className="space-y-6">
+            <div className="space-y-6 order-1 lg:order-2">
               <Card>
-                <h3 className="text-xl font-bold mb-6">Contact Information</h3>
+                <h3 className="text-lg sm:text-xl font-bold mb-6">Contact Information</h3>
                 <div className="space-y-6">
                   {contactInfo.map((info, index) => (
                     <div key={index}>

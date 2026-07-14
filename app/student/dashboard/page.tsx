@@ -97,7 +97,7 @@ export default function StudentDashboard() {
       userAvatar={studentData.avatar}
       userEmail="david.okafor@example.com"
     >
-      <div className="p-8 bg-slate-50 min-h-screen">
+      <div className="p-4 sm:p-6 lg:p-8 bg-slate-50 min-h-screen">
         {/* Welcome Section */}
         <div className="mb-6">
           <h1 className="text-lg font-semibold text-slate-800">Dashboard</h1>

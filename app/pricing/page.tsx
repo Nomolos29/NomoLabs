@@ -98,22 +98,22 @@ export default function PricingPage() {
   return (
     <>
       <Navbar />
-      <main className="py-20 bg-gradient-to-br from-[var(--color-neutral-bg)] to-purple-50">
+      <main className="relative py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-[var(--color-neutral-bg)] to-purple-50 overflow-hidden">
         <Container>
           {/* Hero Section */}
-          <div className="text-center mb-16">
+          <div className="relative text-center mb-10 sm:mb-16">
             {/* 3D Decorative Elements */}
-            <div className="absolute top-20 left-10 w-32 h-32 bg-[var(--color-primary)] rounded-full opacity-10 blur-3xl" />
-            <div className="absolute top-40 right-10 w-40 h-40 bg-[var(--color-accent-orange)] rounded-full opacity-10 blur-3xl" />
+            <div className="absolute top-0 left-0 sm:left-10 w-24 sm:w-32 h-24 sm:h-32 bg-[var(--color-primary)] rounded-full opacity-10 blur-3xl pointer-events-none" />
+            <div className="absolute top-10 right-0 sm:right-10 w-28 sm:w-40 h-28 sm:h-40 bg-[var(--color-accent-orange)] rounded-full opacity-10 blur-3xl pointer-events-none" />
 
-            <h1 className="text-5xl font-bold mb-4">Choose Your Learning Path</h1>
-            <p className="text-lg text-[var(--color-neutral-gray-500)] max-w-2xl mx-auto">
+            <h1 className="relative text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Choose Your Learning Path</h1>
+            <p className="relative text-base sm:text-lg text-[var(--color-neutral-gray-500)] max-w-2xl mx-auto">
               Flexible pricing for live cohort learning. Start your tech career journey today.
             </p>
           </div>
 
           {/* Pricing Cards */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-16">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 mb-12 sm:mb-16">
             {pricingPlans.map((plan) => (
               <PricingCard
                 key={plan.title}
@@ -127,10 +127,10 @@ export default function PricingPage() {
           <PaymentMethods />
 
           {/* FAQ Section */}
-          <section className="mt-16">
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Frequently Asked Questions</h2>
-              <p className="text-[var(--color-neutral-gray-500)]">
+          <section className="mt-10 sm:mt-16">
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Frequently Asked Questions</h2>
+              <p className="text-[var(--color-neutral-gray-500)] text-sm sm:text-base">
                 Got questions? We&apos;ve got answers.
               </p>
             </div>
@@ -139,15 +139,15 @@ export default function PricingPage() {
               {faqs.map((faq, index) => (
                 <details
                   key={index}
-                  className="bg-white rounded-[var(--radius-card)] shadow-[var(--shadow-card)] p-6 cursor-pointer group"
+                  className="bg-white rounded-[var(--radius-card)] shadow-[var(--shadow-card)] p-4 sm:p-6 cursor-pointer group"
                 >
-                  <summary className="font-bold text-lg flex justify-between items-center">
-                    {faq.question}
-                    <span className="text-[var(--color-primary)] group-open:rotate-180 transition-transform">
+                  <summary className="font-bold text-base sm:text-lg flex justify-between items-start gap-3">
+                    <span className="text-left">{faq.question}</span>
+                    <span className="text-[var(--color-primary)] group-open:rotate-180 transition-transform shrink-0">
                       ▼
                     </span>
                   </summary>
-                  <p className="mt-4 text-[var(--color-neutral-gray-500)]">
+                  <p className="mt-4 text-[var(--color-neutral-gray-500)] text-sm sm:text-base">
                     {faq.answer}
                   </p>
                 </details>
@@ -156,13 +156,13 @@ export default function PricingPage() {
           </section>
 
           {/* CTA Section */}
-          <section className="mt-16 text-center">
-            <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-light)] rounded-[var(--radius-card-lg)] p-12 text-white">
-              <h2 className="text-3xl font-bold mb-4">Need Help Choosing?</h2>
-              <p className="text-lg mb-6 text-white text-opacity-90">
+          <section className="mt-10 sm:mt-16 text-center">
+            <div className="bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-light)] rounded-[var(--radius-card-lg)] p-6 sm:p-10 lg:p-12 text-white">
+              <h2 className="text-2xl sm:text-3xl font-bold mb-4">Need Help Choosing?</h2>
+              <p className="text-base sm:text-lg mb-6 text-white text-opacity-90">
                 Not sure which plan is right for you? Our team is here to help!
               </p>
-              <Button variant="secondary" size="lg" onClick={() => router.push('/contact')}>
+              <Button variant="secondary" size="lg" className="w-full sm:w-auto" onClick={() => router.push('/contact')}>
                 Contact Us
               </Button>
             </div>

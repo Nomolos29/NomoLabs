@@ -24,7 +24,7 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
     <Link href={`/courses/${course.slug}`}>
       <Card className="h-full flex flex-col cursor-pointer group">
         {/* Course Image */}
-        <div className="relative h-48 -mx-8 -mt-8 mb-4 overflow-hidden rounded-t-[var(--radius-card)]">
+        <div className="relative h-40 sm:h-48 -mx-4 -mt-4 sm:-mx-6 sm:-mt-6 lg:-mx-8 lg:-mt-8 mb-4 overflow-hidden rounded-t-[var(--radius-card)]">
           <Image
             src={course.media.thumbnail}
             alt={course.title}
@@ -68,16 +68,16 @@ const CourseCard: React.FC<CourseCardProps> = ({ course }) => {
           </div>
 
           {/* Price & CTA */}
-          <div className="mt-auto flex items-center justify-between">
+          <div className="mt-auto flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
             <div>
-              <p className="text-2xl font-bold text-[var(--color-primary)]">
+              <p className="text-xl sm:text-2xl font-bold text-[var(--color-primary)]">
                 {formatPrice(course.pricing.basePrice)}
               </p>
               <p className="text-sm text-[var(--color-neutral-gray-500)]">
                 or ${course.pricing.usdPrice}
               </p>
             </div>
-            <Button variant="primary">
+            <Button variant="primary" className="w-full sm:w-auto shrink-0">
               View Details
             </Button>
           </div>

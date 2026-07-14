@@ -32,13 +32,13 @@ export default function AboutPage() {
   return (
     <>
       <Navbar />
-      <main className="py-20">
+      <main className="py-10 sm:py-16 lg:py-20">
         {/* Hero Section */}
-        <section className="bg-gradient-to-br from-[var(--color-neutral-bg)] to-purple-50 py-20">
+        <section className="bg-gradient-to-br from-[var(--color-neutral-bg)] to-purple-50 py-12 sm:py-16 lg:py-20">
           <Container>
             <div className="text-center max-w-3xl mx-auto">
-              <h1 className="text-5xl font-bold mb-6">About Nomolabs</h1>
-              <p className="text-xl text-[var(--color-neutral-gray-500)]">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4 sm:mb-6">About Nomolabs</h1>
+              <p className="text-base sm:text-xl text-[var(--color-neutral-gray-500)]">
                 We&apos;re on a mission to democratize tech education through live, cohort-based learning.
               </p>
             </div>
@@ -46,11 +46,11 @@ export default function AboutPage() {
         </section>
 
         {/* Our Story */}
-        <section className="py-20 bg-white">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white">
           <Container>
             <div className="max-w-3xl mx-auto">
-              <h2 className="text-4xl font-bold mb-6">Our Story</h2>
-              <div className="space-y-4 text-lg text-[var(--color-neutral-gray-500)]">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4 sm:mb-6">Our Story</h2>
+              <div className="space-y-4 text-base sm:text-lg text-[var(--color-neutral-gray-500)]">
                 <p>
                   Nomolabs was founded in 2024 with a simple belief: everyone deserves access to high-quality tech education, regardless of their background or location.
                 </p>
@@ -69,16 +69,16 @@ export default function AboutPage() {
         </section>
 
         {/* Our Values */}
-        <section className="py-20 bg-gradient-to-br from-[var(--color-neutral-bg)] to-purple-50">
+        <section className="py-12 sm:py-16 lg:py-20 bg-gradient-to-br from-[var(--color-neutral-bg)] to-purple-50">
           <Container>
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold mb-4">Our Values</h2>
-              <p className="text-lg text-[var(--color-neutral-gray-500)] max-w-2xl mx-auto">
+            <div className="text-center mb-8 sm:mb-12">
+              <h2 className="text-2xl sm:text-3xl lg:text-4xl font-bold mb-4">Our Values</h2>
+              <p className="text-base sm:text-lg text-[var(--color-neutral-gray-500)] max-w-2xl mx-auto">
                 These principles guide everything we do at Nomolabs.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
               {values.map((value, index) => (
                 <Card key={index} className="text-center">
                   <div className="w-16 h-16 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-light)] rounded-full flex items-center justify-center mx-auto mb-4">
@@ -93,24 +93,24 @@ export default function AboutPage() {
         </section>
 
         {/* Stats Section */}
-        <section className="py-20 bg-white">
+        <section className="py-12 sm:py-16 lg:py-20 bg-white">
           <Container>
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8 text-center">
               <div>
-                <p className="text-5xl font-bold text-[var(--color-primary)] mb-2">1M+</p>
-                <p className="text-[var(--color-neutral-gray-500)]">Students Enrolled</p>
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-2">1M+</p>
+                <p className="text-sm sm:text-base text-[var(--color-neutral-gray-500)]">Students Enrolled</p>
               </div>
               <div>
-                <p className="text-5xl font-bold text-[var(--color-primary)] mb-2">50+</p>
-                <p className="text-[var(--color-neutral-gray-500)]">Course Contents</p>
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-2">50+</p>
+                <p className="text-sm sm:text-base text-[var(--color-neutral-gray-500)]">Course Contents</p>
               </div>
               <div>
-                <p className="text-5xl font-bold text-[var(--color-primary)] mb-2">95%</p>
-                <p className="text-[var(--color-neutral-gray-500)]">Satisfaction Rate</p>
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-2">95%</p>
+                <p className="text-sm sm:text-base text-[var(--color-neutral-gray-500)]">Satisfaction Rate</p>
               </div>
               <div>
-                <p className="text-5xl font-bold text-[var(--color-primary)] mb-2">20+</p>
-                <p className="text-[var(--color-neutral-gray-500)]">Expert Instructors</p>
+                <p className="text-3xl sm:text-4xl lg:text-5xl font-bold text-[var(--color-primary)] mb-2">20+</p>
+                <p className="text-sm sm:text-base text-[var(--color-neutral-gray-500)]">Expert Instructors</p>
               </div>
             </div>
           </Container>

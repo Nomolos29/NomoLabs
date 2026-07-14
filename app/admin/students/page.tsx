@@ -48,7 +48,7 @@ export default function AdminStudents() {
       userAvatar="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop"
       userEmail="admin@nomolabs.com"
     >
-      <div className="p-8 bg-slate-50 min-h-screen">
+      <div className="p-4 sm:p-6 lg:p-8 bg-slate-50 min-h-screen">
         <div className="mb-6">
           <h1 className="text-lg font-semibold text-slate-800">Student Management</h1>
         </div>
@@ -56,33 +56,33 @@ export default function AdminStudents() {
         <div className="grid gap-4">
           {students.map((student) => (
             <Card key={student.id} className="bg-white/80 backdrop-blur-sm border border-slate-100 shadow-sm hover:shadow-lg hover:border-slate-200 transition-all duration-300">
-              <div className="flex items-center gap-4">
+              <div className="flex flex-col sm:flex-row sm:items-center gap-4">
                 <Avatar src={student.photo} alt={student.name} size="lg" />
                 
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-lg font-semibold text-slate-800">{student.name}</h3>
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+                    <h3 className="text-base sm:text-lg font-semibold text-slate-800">{student.name}</h3>
                     <Badge variant={student.status === 'active' ? 'success' : 'secondary'}>
                       {student.status}
                     </Badge>
                   </div>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-600">
-                    <div className="flex items-center gap-2">
-                      <Mail size={16} />
-                      {student.email}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-2 sm:gap-4 text-sm text-slate-600">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <Mail size={16} className="shrink-0" />
+                      <span className="truncate">{student.email}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Calendar size={16} />
+                      <Calendar size={16} className="shrink-0" />
                       Joined {student.joined}
                     </div>
                     <div>Attendance: {student.attendance}%</div>
                   </div>
                   
-                  <div className="mt-2">
-                    <span className="text-sm text-slate-600">Courses: </span>
+                  <div className="mt-2 flex flex-wrap items-center gap-2">
+                    <span className="text-sm text-slate-600">Courses:</span>
                     {student.courses.map((course, index) => (
-                      <Badge key={index} variant="secondary" className="mr-2">
+                      <Badge key={index} variant="secondary">
                         {course}
                       </Badge>
                     ))}

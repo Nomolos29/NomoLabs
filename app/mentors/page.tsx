@@ -27,23 +27,23 @@ export default function MentorsPage() {
   return (
     <>
       <Navbar />
-      <main className="py-20">
+      <main className="py-10 sm:py-16 lg:py-20">
         <Container>
           {/* Page Header */}
-          <div className="text-center mb-12">
-            <h1 className="text-5xl font-bold mb-4">Meet Our Expert Mentors</h1>
-            <p className="text-lg text-[var(--color-neutral-gray-500)] max-w-2xl mx-auto">
+          <div className="text-center mb-8 sm:mb-12">
+            <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">Meet Our Expert Mentors</h1>
+            <p className="text-base sm:text-lg text-[var(--color-neutral-gray-500)] max-w-2xl mx-auto">
               Learn from industry professionals with proven track records at top tech companies.
             </p>
           </div>
 
           {/* Filter Buttons */}
-          <div className="flex flex-wrap justify-center gap-4 mb-12">
+          <div className="flex flex-wrap justify-center gap-2 sm:gap-4 mb-8 sm:mb-12">
             {filters.map((filter) => (
               <button
                 key={filter}
                 onClick={() => setSelectedFilter(filter)}
-                className={`px-6 py-3 rounded-full font-semibold transition-all ${
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-full text-sm sm:text-base font-semibold transition-all ${
                   selectedFilter === filter
                     ? 'bg-[var(--color-primary)] text-white shadow-[var(--shadow-card)]'
                     : 'bg-white text-[var(--color-neutral-gray-900)] border-2 border-[var(--color-neutral-gray-100)] hover:border-[var(--color-primary)]'
@@ -55,11 +55,11 @@ export default function MentorsPage() {
           </div>
 
           {/* Mentors Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
             {filteredMentors.map((mentor) => (
               <Card key={mentor.id} className="text-center">
                 {/* Mentor Photo with Blob Background */}
-                <div className="relative mx-auto mb-6 w-40 h-40">
+                <div className="relative mx-auto mb-6 w-32 h-32 sm:w-40 sm:h-40">
                   <div className="absolute inset-0 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-light)] rounded-full opacity-20 blur-2xl" />
                   <Image
                     src={mentor.photo}

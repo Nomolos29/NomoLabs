@@ -47,11 +47,11 @@ const PricingCard: React.FC<PricingCardProps> = ({
           popular ? 'border-2 border-[var(--color-primary)] shadow-[var(--shadow-card-lg)]' : ''
         }`}
       >
-        <h3 className="text-2xl font-bold mb-4">{title}</h3>
+        <h3 className="text-xl sm:text-2xl font-bold mb-4">{title}</h3>
 
         <div className="mb-6">
-          <div className="flex items-baseline gap-2">
-            <p className="text-4xl font-bold text-[var(--color-primary)]">
+          <div className="flex flex-wrap items-baseline gap-2">
+            <p className="text-3xl sm:text-4xl font-bold text-[var(--color-primary)]">
               {formatPrice(price)}
             </p>
             {discount && (

@@ -48,10 +48,10 @@ export default function AdminCourses() {
       userAvatar="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop"
       userEmail="admin@nomolabs.com"
     >
-      <div className="p-8 bg-slate-50 min-h-screen">
-        <div className="flex items-center justify-between mb-6">
+      <div className="p-4 sm:p-6 lg:p-8 bg-slate-50 min-h-screen">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
           <h1 className="text-lg font-semibold text-slate-800">Course Management</h1>
-          <Button variant="primary">
+          <Button variant="primary" className="w-full sm:w-auto shrink-0">
             <Plus size={16} />
             Add Course
           </Button>
@@ -60,22 +60,22 @@ export default function AdminCourses() {
         <div className="grid gap-4">
           {courses.map((course) => (
             <Card key={course.id} className="bg-white/80 backdrop-blur-sm border border-slate-100 shadow-sm hover:shadow-lg hover:border-slate-200 transition-all duration-300">
-              <div className="flex items-center justify-between">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-lg font-semibold text-slate-800">{course.title}</h3>
+              <div className="flex flex-col sm:flex-row sm:items-start justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+                    <h3 className="text-base sm:text-lg font-semibold text-slate-800">{course.title}</h3>
                     <Badge variant={course.status === 'active' ? 'success' : 'secondary'}>
                       {course.status}
                     </Badge>
                   </div>
                   
-                  <div className="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-slate-600">
-                    <div className="flex items-center gap-2">
-                      <BookOpen size={16} />
-                      {course.category}
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-3 sm:gap-4 text-sm text-slate-600">
+                    <div className="flex items-center gap-2 min-w-0">
+                      <BookOpen size={16} className="shrink-0" />
+                      <span className="truncate">{course.category}</span>
                     </div>
                     <div className="flex items-center gap-2">
-                      <Users size={16} />
+                      <Users size={16} className="shrink-0" />
                       {course.students} students
                     </div>
                     <div>₦{course.price.toLocaleString()}</div>
@@ -83,7 +83,7 @@ export default function AdminCourses() {
                   </div>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex gap-2 shrink-0 self-end sm:self-start">
                   <Button variant="ghost" size="sm">
                     <Eye size={16} />
                   </Button>

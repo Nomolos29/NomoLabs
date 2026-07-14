@@ -17,25 +17,30 @@ const Button: React.FC<ButtonProps> = ({
   className = '',
   ...props
 }) => {
-  const baseStyles = 'font-semibold rounded-full transition-all duration-300 flex items-center justify-center gap-2';
+  const baseStyles =
+    'font-semibold rounded-full transition-all duration-300 flex items-center justify-center gap-2';
 
   const variants = {
-    primary: 'bg-gradient-to-r from-[var(--color-primary)] to-[var(--color-primary-light)] text-white shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-lg)] hover:-translate-y-0.5',
-    secondary: 'bg-[var(--color-accent-orange)] text-white shadow-[var(--shadow-card)] hover:shadow-[var(--shadow-card-lg)] hover:-translate-y-0.5',
-    outline: 'border-2 border-[var(--color-primary)] text-[var(--color-primary)] hover:bg-[var(--color-primary)] hover:text-white',
-    ghost: 'text-[var(--color-primary)] hover:bg-[var(--color-primary-light)] hover:bg-opacity-10',
+    primary:
+      'bg-[var(--color-primary)] text-[var(--color-neutral-gray-900)] shadow-[var(--shadow-soft)] hover:bg-[var(--color-neutral-gray-900)] hover:text-white',
+    secondary:
+      'bg-[var(--color-secondary)] text-[var(--color-neutral-gray-900)] shadow-[var(--shadow-soft)] hover:bg-[var(--color-neutral-gray-900)] hover:text-white',
+    outline:
+      'border-2 border-[var(--color-neutral-gray-900)] text-[var(--color-neutral-gray-900)] hover:bg-[var(--color-neutral-gray-900)] hover:text-white',
+    ghost:
+      'text-[var(--color-neutral-gray-900)] hover:bg-[var(--color-neutral-bg-2)]',
   };
 
   const sizes = {
     sm: 'px-4 py-2 text-sm',
-    md: 'px-6 py-3 text-base',
-    lg: 'px-8 py-4 text-lg',
+    md: 'px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base',
+    lg: 'px-6 sm:px-8 py-3 sm:py-4 text-base sm:text-lg',
   };
 
   return (
     <button
       className={`${baseStyles} ${variants[variant]} ${sizes[size]} ${className} ${
-        (disabled || loading) ? 'opacity-50 cursor-not-allowed' : ''
+        disabled || loading ? 'opacity-50 cursor-not-allowed' : ''
       }`}
       disabled={disabled || loading}
       {...props}

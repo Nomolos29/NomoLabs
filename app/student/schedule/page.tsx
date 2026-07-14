@@ -82,26 +82,27 @@ export default function StudentSchedule() {
       userAvatar="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop"
       userEmail="david.okafor@example.com"
     >
-      <div className="p-8 bg-slate-50 min-h-screen">
+      <div className="p-4 sm:p-6 lg:p-8 bg-slate-50 min-h-screen">
         <div className="mb-6">
           <h1 className="text-lg font-semibold text-slate-800">Class Schedule</h1>
         </div>
 
         {/* Week Navigation */}
         <Card className="mb-6 bg-white/80 backdrop-blur-sm border border-slate-100 shadow-sm">
-          <div className="flex items-center justify-between">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
             <Button
               variant="ghost"
               size="sm"
               onClick={() => setCurrentWeek(Math.max(0, currentWeek - 1))}
               disabled={currentWeek === 0}
+              className="w-full sm:w-auto order-2 sm:order-1"
             >
               <ChevronLeft size={16} />
               Previous Week
             </Button>
             
-            <div className="text-center">
-              <h3 className="text-lg font-semibold text-slate-800">{currentSchedule.week}</h3>
+            <div className="text-center order-1 sm:order-2">
+              <h3 className="text-base sm:text-lg font-semibold text-slate-800">{currentSchedule.week}</h3>
               <p className="text-sm text-slate-600">Week {currentWeek + 1}</p>
             </div>
             
@@ -110,6 +111,7 @@ export default function StudentSchedule() {
               size="sm"
               onClick={() => setCurrentWeek(Math.min(weeklySchedule.length - 1, currentWeek + 1))}
               disabled={currentWeek === weeklySchedule.length - 1}
+              className="w-full sm:w-auto order-3"
             >
               Next Week
               <ChevronRight size={16} />
@@ -123,7 +125,7 @@ export default function StudentSchedule() {
             <Card key={classItem.id} className="bg-white/80 backdrop-blur-sm border border-slate-100 shadow-sm hover:shadow-lg hover:border-slate-200 transition-all duration-300">
               <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4">
                 <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
                     <Badge variant="primary">{classItem.course}</Badge>
                     <Badge variant={classItem.type === 'workshop' ? 'warning' : 'info'}>
                       {classItem.type}

@@ -1,5 +1,4 @@
 import React from 'react';
-import { UserPlus, Video, FileCheck, TrendingUp } from 'lucide-react';
 import Container from '../layout/Container';
 
 const HowItWorks = () => {
@@ -8,85 +7,76 @@ const HowItWorks = () => {
       number: 1,
       title: 'Enroll in a Cohort',
       description: 'AI matches you with the perfect learning path.',
-      icon: UserPlus,
-      imagePosition: 'left',
+      tint: 'from-[var(--color-primary)] to-[var(--color-accent)]',
     },
     {
       number: 2,
       title: 'Attend Live Classes',
       description: 'AI-generated content adapts to your pace.',
-      icon: Video,
-      imagePosition: 'right',
+      tint: 'from-[var(--color-secondary)] to-[var(--color-tertiary)]',
     },
     {
       number: 3,
       title: 'Complete Assignments',
       description: 'Smart assignments adjust difficulty automatically.',
-      icon: FileCheck,
-      imagePosition: 'left',
+      tint: 'from-[var(--color-accent)] to-[var(--color-primary)]',
     },
     {
       number: 4,
       title: 'Track Your Progress',
       description: 'AI tracks progress and suggests improvements.',
-      icon: TrendingUp,
-      imagePosition: 'right',
+      tint: 'from-[var(--color-tertiary)] to-[var(--color-accent-2)]',
     },
   ];
 
   return (
-    <section className="py-20 bg-gradient-to-br from-[var(--color-neutral-bg)] to-purple-50 relative overflow-hidden">
-      {/* Decorative blobs */}
-      <div className="absolute top-40 left-0 w-64 h-64 bg-[var(--color-primary)] rounded-full opacity-10 blur-3xl" />
-      <div className="absolute bottom-20 right-0 w-80 h-80 bg-[var(--color-accent-orange)] rounded-full opacity-10 blur-3xl" />
-
+    <section className="py-16 sm:py-20 lg:py-28 bg-atmosphere-warm relative overflow-hidden">
       <Container>
-        <div className="text-center mb-16">
-          <h2 className="text-3xl font-bold mb-4">
-            How It Works
-          </h2>
-          <p className="text-[var(--color-neutral-gray-500)] max-w-xl mx-auto">
+        <div className="max-w-2xl mb-14 sm:mb-20 text-center mx-auto">
+          <h2 className="mb-4">How It Works</h2>
+          <p className="text-[var(--color-foreground-2)] text-base sm:text-lg">
             AI adapts to your learning style for optimal results.
           </p>
         </div>
 
-        <div className="space-y-16">
-          {steps.map((step, index) => (
-            <div
-              key={step.number}
-              className={`grid grid-cols-1 md:grid-cols-2 gap-8 items-center ${
-                step.imagePosition === 'right' ? 'md:flex-row-reverse' : ''
-              }`}
-            >
-              {/* Content */}
-              <div className={step.imagePosition === 'right' ? 'md:order-2' : ''}>
-                <div className="flex items-center gap-4 mb-4">
-                  <div className="w-12 h-12 bg-gradient-to-br from-[var(--color-primary)] to-[var(--color-primary-light)] text-white rounded-full flex items-center justify-center font-bold text-xl">
-                    {step.number}
-                  </div>
-                  <step.icon size={32} className="text-[var(--color-primary)]" />
+        <div className="space-y-16 sm:space-y-24">
+          {steps.map((step, index) => {
+            const reverse = index % 2 === 1;
+            return (
+              <div
+                key={step.number}
+                className="grid grid-cols-1 md:grid-cols-2 gap-8 lg:gap-14 items-center"
+              >
+                <div className={reverse ? 'md:order-2' : ''}>
+                  <p className="text-sm font-semibold tracking-wide uppercase text-[var(--color-neutral-gray-500)] mb-4">
+                    Step {step.number}
+                  </p>
+                  <h3 className="font-[family-name:var(--font-heading)] text-3xl sm:text-4xl font-medium tracking-[-0.03em] mb-4">
+                    {step.title}
+                  </h3>
+                  <p className="text-[var(--color-foreground-2)] text-base sm:text-lg max-w-md leading-relaxed">
+                    {step.description}
+                  </p>
                 </div>
-                <h3 className="text-2xl font-bold mb-2">{step.title}</h3>
-                <p className="text-[var(--color-neutral-gray-500)]">{step.description}</p>
-              </div>
 
-              {/* Image Placeholder */}
-              <div className={step.imagePosition === 'right' ? 'md:order-1' : ''}>
-                <div className="bg-white rounded-[var(--radius-card-lg)] shadow-[var(--shadow-card)] p-8 aspect-video flex items-center justify-center">
-                  <div className="text-center">
-                    <div className={`w-48 h-48 bg-gradient-to-br ${
-                      index % 2 === 0
-                        ? 'from-[var(--color-primary)] to-[var(--color-primary-light)]'
-                        : 'from-[var(--color-accent-orange)] to-yellow-400'
-                    } rounded-full mx-auto mb-4`} />
-                    <p className="text-[var(--color-neutral-gray-500)] text-sm">
-                      [Step {step.number} Illustration]
-                    </p>
+                <div className={reverse ? 'md:order-1' : ''}>
+                  <div
+                    className={`aspect-[4/3] rounded-[1.75rem] bg-gradient-to-br ${step.tint} relative overflow-hidden`}
+                  >
+                    <div className="absolute inset-0 bg-[radial-gradient(circle_at_30%_20%,rgba(255,255,255,0.35),transparent_55%)]" />
+                    <div className="absolute bottom-6 left-6 right-6 rounded-2xl bg-white/55 backdrop-blur-md px-5 py-4">
+                      <p className="font-[family-name:var(--font-heading)] text-lg font-medium">
+                        {step.title}
+                      </p>
+                      <p className="text-sm text-[var(--color-foreground-2)] mt-1">
+                        Step {step.number} of 4
+                      </p>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            );
+          })}
         </div>
       </Container>
     </section>

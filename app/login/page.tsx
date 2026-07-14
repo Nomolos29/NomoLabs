@@ -37,7 +37,7 @@ export default function LoginPage() {
         </div>
 
         <Card variant="large">
-          <h1 className="text-3xl font-bold text-center mb-2">Welcome Back</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-center mb-2">Welcome Back</h1>
           <p className="text-center text-[var(--color-neutral-gray-500)] mb-8">
             Log in to your account to continue learning
           </p>
@@ -61,7 +61,7 @@ export default function LoginPage() {
               required
             />
 
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
               <label className="flex items-center gap-2 cursor-pointer">
                 <input
                   type="checkbox"

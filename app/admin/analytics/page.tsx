@@ -26,13 +26,13 @@ export default function AdminAnalytics() {
       userAvatar="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop"
       userEmail="admin@nomolabs.com"
     >
-      <div className="p-8 bg-slate-50 min-h-screen">
+      <div className="p-4 sm:p-6 lg:p-8 bg-slate-50 min-h-screen">
         <div className="mb-6">
           <h1 className="text-lg font-semibold text-slate-800">Analytics & Reports</h1>
         </div>
 
         {/* Key Metrics */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-4 sm:gap-6 mb-8">
           {metrics.map((metric, index) => (
             <Card key={index} className="bg-white/80 backdrop-blur-sm border border-slate-100 shadow-sm">
               <div className="flex items-center gap-4">
@@ -66,12 +66,12 @@ export default function AdminAnalytics() {
           <div className="space-y-4">
             {coursePerformance.map((course, index) => (
               <div key={index} className="p-4 bg-slate-50 rounded-lg">
-                <div className="flex items-center justify-between mb-3">
+                <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1 mb-3">
                   <h3 className="font-semibold text-slate-800">{course.course}</h3>
                   <span className="text-sm text-slate-600">{course.students} students</span>
                 </div>
                 
-                <div className="grid grid-cols-2 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                   <div>
                     <div className="flex justify-between text-sm mb-1">
                       <span className="text-slate-600">Completion Rate</span>

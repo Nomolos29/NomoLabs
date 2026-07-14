@@ -25,47 +25,48 @@ const Footer = () => {
   };
 
   const socialLinks = [
-    { icon: Facebook, url: '#' },
-    { icon: Twitter, url: '#' },
-    { icon: Instagram, url: '#' },
-    { icon: Linkedin, url: '#' },
+    { icon: Facebook, url: '#', label: 'Facebook' },
+    { icon: Twitter, url: '#', label: 'Twitter' },
+    { icon: Instagram, url: '#', label: 'Instagram' },
+    { icon: Linkedin, url: '#', label: 'LinkedIn' },
   ];
 
   return (
-    <footer className="bg-[var(--color-neutral-gray-900)] text-white py-16">
+    <footer className="bg-[var(--color-neutral-bg-2)] text-[var(--color-neutral-gray-900)] py-12 sm:py-16 border-t border-[var(--color-neutral-bg-3)]">
       <Container>
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
-          {/* Brand */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
           <div>
-            <h3 className="text-2xl font-bold text-[var(--color-primary-light)] mb-4">
+            <h3 className="font-[family-name:var(--font-heading)] text-2xl font-medium tracking-[-0.03em] mb-4">
               Nomolabs
             </h3>
-            <p className="text-[var(--color-neutral-gray-100)] mb-4">
+            <p className="text-[var(--color-foreground-2)] mb-6 leading-relaxed">
               Empowering the next generation of tech professionals through live, cohort-based learning.
             </p>
-            <div className="flex gap-4">
-              {socialLinks.map((social, index) => (
+            <div className="flex gap-2">
+              {socialLinks.map((social) => (
                 <a
-                  key={index}
+                  key={social.label}
                   href={social.url}
-                  className="w-10 h-10 bg-[var(--color-primary-light)] rounded-full flex items-center justify-center hover:bg-[var(--color-primary)] transition-colors"
+                  aria-label={social.label}
+                  className="w-10 h-10 rounded-full bg-[var(--color-neutral-white)] border border-[var(--color-neutral-bg-3)] flex items-center justify-center hover:bg-[var(--color-primary)] transition-colors"
                 >
-                  <social.icon size={18} />
+                  <social.icon size={16} />
                 </a>
               ))}
             </div>
           </div>
 
-          {/* Links */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="font-semibold mb-4">{category}</h4>
-              <ul className="space-y-2">
+              <h4 className="font-[family-name:var(--font-heading)] font-medium mb-4 tracking-[-0.02em]">
+                {category}
+              </h4>
+              <ul className="space-y-2.5">
                 {links.map((link) => (
                   <li key={link.path}>
                     <Link
                       href={link.path}
-                      className="text-[var(--color-neutral-gray-100)] hover:text-[var(--color-primary-light)] transition-colors"
+                      className="text-[var(--color-foreground-2)] hover:text-[var(--color-neutral-gray-900)] transition-colors"
                     >
                       {link.name}
                     </Link>
@@ -76,12 +77,11 @@ const Footer = () => {
           ))}
         </div>
 
-        {/* Bottom Bar */}
-        <div className="border-t border-gray-500 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-[var(--color-neutral-gray-100)] text-sm">
+        <div className="border-t border-[var(--color-neutral-bg-3)] pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-[var(--color-neutral-gray-500)] text-sm">
             © 2025 Nomolabs. All rights reserved.
           </p>
-          <p className="text-[var(--color-neutral-gray-100)] text-sm flex items-center gap-2">
+          <p className="text-[var(--color-neutral-gray-500)] text-sm flex items-center gap-2">
             <Mail size={16} />
             support@nomolabs.com
           </p>

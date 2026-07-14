@@ -60,7 +60,7 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
       <Navbar />
       <main>
         {/* Hero Section */}
-        <section className="relative py-20 bg-gradient-to-br from-[var(--color-neutral-bg)] to-purple-50">
+        <section className="relative py-10 sm:py-16 lg:py-20 bg-gradient-to-br from-[var(--color-neutral-bg)] to-purple-50 overflow-hidden">
           <div className="absolute inset-0 z-0">
             <Image
               src={course.media.banner}
@@ -78,29 +78,29 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
               } className="mb-4">
                 {course.category}
               </Badge>
-              <h1 className="text-5xl font-bold mb-4">{course.title}</h1>
-              <p className="text-xl text-[var(--color-neutral-gray-500)] mb-8">
+              <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold mb-4">{course.title}</h1>
+              <p className="text-base sm:text-xl text-[var(--color-neutral-gray-500)] mb-6 sm:mb-8">
                 {course.fullDescription}
               </p>
 
-              <div className="flex flex-wrap gap-6 mb-8">
+              <div className="flex flex-wrap gap-4 sm:gap-6 mb-6 sm:mb-8">
                 <div className="flex items-center gap-2">
-                  <Clock size={20} className="text-[var(--color-primary)]" />
-                  <span className="font-semibold">{course.duration}</span>
+                  <Clock size={20} className="text-[var(--color-primary)] shrink-0" />
+                  <span className="font-semibold text-sm sm:text-base">{course.duration}</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Users size={20} className="text-[var(--color-primary)]" />
-                  <span className="font-semibold">{course.settings.maxStudentsPerCohort} students max</span>
+                  <Users size={20} className="text-[var(--color-primary)] shrink-0" />
+                  <span className="font-semibold text-sm sm:text-base">{course.settings.maxStudentsPerCohort} students max</span>
                 </div>
                 <div className="flex items-center gap-2">
-                  <Award size={20} className="text-[var(--color-primary)]" />
-                  <span className="font-semibold">{course.difficultyLevel}</span>
+                  <Award size={20} className="text-[var(--color-primary)] shrink-0" />
+                  <span className="font-semibold text-sm sm:text-base">{course.difficultyLevel}</span>
                 </div>
               </div>
 
               <div className="flex flex-wrap gap-4">
-                <div className="flex items-baseline gap-2">
-                  <span className="text-4xl font-bold text-[var(--color-primary)]">
+                <div className="flex flex-wrap items-baseline gap-2">
+                  <span className="text-2xl sm:text-3xl lg:text-4xl font-bold text-[var(--color-primary)]">
                     {formatPrice(course.pricing.basePrice)}
                   </span>
                   <span className="text-[var(--color-neutral-gray-500)]">
@@ -109,9 +109,9 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
                 </div>
               </div>
 
-              <div className="mt-8">
-                <Link href="/pricing">
-                  <Button variant="secondary" size="lg">
+              <div className="mt-6 sm:mt-8">
+                <Link href="/pricing" className="inline-block w-full sm:w-auto">
+                  <Button variant="secondary" size="lg" className="w-full sm:w-auto">
                     Enroll Now
                   </Button>
                 </Link>
@@ -130,14 +130,14 @@ export default async function CourseDetailPage({ params }: { params: Promise<{ s
         </section>
 
         {/* Main Content */}
-        <Container className="py-16">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
+        <Container className="py-10 sm:py-12 lg:py-16">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
             {/* Left Column - Main Content */}
-            <div className="lg:col-span-2 space-y-12">
+            <div className="lg:col-span-2 space-y-8 sm:space-y-12">
               {/* What You'll Learn */}
               <section>
-                <h2 className="text-3xl font-bold mb-6">What You&apos;ll Learn</h2>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                <h2 className="text-2xl sm:text-3xl font-bold mb-4 sm:mb-6">What You&apos;ll Learn</h2>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3 sm:gap-4">
                   {course.learningOutcomes.map((outcome, index) => (
                     <div key={index} className="flex items-start gap-3">
                       <Check size={20} className="text-[var(--color-accent-green)] flex-shrink-0 mt-1" />

@@ -49,7 +49,7 @@ export default function StudentProfile() {
       userAvatar="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop"
       userEmail={formData.email}
     >
-      <div className="p-8 bg-slate-50 min-h-screen">
+      <div className="p-4 sm:p-6 lg:p-8 bg-slate-50 min-h-screen">
         <div className="mb-6">
           <h1 className="text-lg font-semibold text-slate-800">Profile Settings</h1>
         </div>
@@ -62,15 +62,16 @@ export default function StudentProfile() {
           </div>
         )}
 
-        <div className="grid grid-cols-1 xl:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 xl:grid-cols-3 gap-6 sm:gap-8">
           {/* Profile Card */}
           <div className="xl:col-span-2">
             <Card className="bg-white/80 backdrop-blur-sm border border-slate-100 shadow-sm">
-              <div className="flex justify-between items-center mb-6">
-                <h2 className="text-2xl font-semibold text-slate-800">Personal Information</h2>
+              <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-3 mb-6">
+                <h2 className="text-xl sm:text-2xl font-semibold text-slate-800">Personal Information</h2>
                 <Button
                   variant={isEditing ? 'secondary' : 'primary'}
                   onClick={() => isEditing ? handleSave() : setIsEditing(true)}
+                  className="w-full sm:w-auto shrink-0"
                 >
                   {isEditing ? <Save size={16} /> : <User size={16} />}
                   {isEditing ? 'Save Changes' : 'Edit Profile'}
@@ -78,7 +79,7 @@ export default function StudentProfile() {
               </div>
 
               {/* Avatar Section */}
-              <div className="flex items-center gap-6 mb-8">
+              <div className="flex flex-col sm:flex-row items-center sm:items-start text-center sm:text-left gap-4 sm:gap-6 mb-6 sm:mb-8">
                 <div className="relative">
                   <Avatar
                     src="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop"

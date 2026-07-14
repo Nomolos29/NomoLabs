@@ -35,7 +35,7 @@ export default function StudentSettings() {
       userAvatar="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop"
       userEmail="david.okafor@example.com"
     >
-      <div className="p-8 bg-slate-50 min-h-screen">
+      <div className="p-4 sm:p-6 lg:p-8 bg-slate-50 min-h-screen">
         <div className="mb-6">
           <h1 className="text-lg font-semibold text-slate-800">Settings</h1>
         </div>
@@ -54,7 +54,7 @@ export default function StudentSettings() {
             </div>
 
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-slate-50 rounded-lg">
                 <div>
                   <h3 className="font-medium text-slate-800">Adaptive Difficulty</h3>
                   <p className="text-sm text-slate-600">AI adjusts course difficulty based on your performance</p>
@@ -74,7 +74,7 @@ export default function StudentSettings() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-slate-50 rounded-lg">
                 <div>
                   <h3 className="font-medium text-slate-800">Personalized Learning Path</h3>
                   <p className="text-sm text-slate-600">AI creates custom curriculum based on your goals</p>
@@ -91,7 +91,7 @@ export default function StudentSettings() {
                 </button>
               </div>
 
-              <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-slate-50 rounded-lg">
                 <div>
                   <h3 className="font-medium text-slate-800">AI Tutor</h3>
                   <p className="text-sm text-slate-600">Get instant help and explanations from AI</p>
@@ -108,7 +108,7 @@ export default function StudentSettings() {
                 </button>
               </div>
 
-              <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-slate-50 rounded-lg">
                 <div>
                   <h3 className="font-medium text-slate-800">Smart Reminders</h3>
                   <p className="text-sm text-slate-600">AI sends reminders at optimal learning times</p>
@@ -143,7 +143,7 @@ export default function StudentSettings() {
                 progressUpdates: 'Progress Updates',
                 aiInsights: 'AI Learning Insights',
               }).map(([key, label]) => (
-                <div key={key} className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+                <div key={key} className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-slate-50 rounded-lg">
                   <h3 className="font-medium text-slate-800">{label}</h3>
                   <button
                     onClick={() => setNotifications(prev => ({ ...prev, [key]: !prev[key as keyof typeof prev] }))}
@@ -170,7 +170,7 @@ export default function StudentSettings() {
             </div>
 
             <div className="space-y-4">
-              <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-slate-50 rounded-lg">
                 <div className="flex items-center gap-3">
                   <Monitor size={20} className="text-slate-600" />
                   <h3 className="font-medium text-slate-800">Theme</h3>
@@ -195,7 +195,7 @@ export default function StudentSettings() {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between p-4 bg-slate-50 rounded-lg">
+              <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 p-4 bg-slate-50 rounded-lg">
                 <div className="flex items-center gap-3">
                   <Globe size={20} className="text-slate-600" />
                   <h3 className="font-medium text-slate-800">Language</h3>

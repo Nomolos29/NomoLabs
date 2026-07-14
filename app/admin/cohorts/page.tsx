@@ -54,10 +54,10 @@ export default function AdminCohorts() {
       userAvatar="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop"
       userEmail="admin@nomolabs.com"
     >
-      <div className="p-8 bg-slate-50 min-h-screen">
-        <div className="flex items-center justify-between mb-6">
+      <div className="p-4 sm:p-6 lg:p-8 bg-slate-50 min-h-screen">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 mb-6">
           <h1 className="text-lg font-semibold text-slate-800">Cohort Management</h1>
-          <Button variant="primary">
+          <Button variant="primary" className="w-full sm:w-auto shrink-0">
             <Plus size={16} />
             Create Cohort
           </Button>
@@ -66,29 +66,29 @@ export default function AdminCohorts() {
         <div className="grid gap-4">
           {cohorts.map((cohort) => (
             <Card key={cohort.id} className="bg-white/80 backdrop-blur-sm border border-slate-100 shadow-sm hover:shadow-lg hover:border-slate-200 transition-all duration-300">
-              <div className="flex items-center justify-between">
-                <div className="flex-1">
-                  <div className="flex items-center gap-3 mb-2">
-                    <h3 className="text-lg font-semibold text-slate-800">{cohort.name}</h3>
+              <div className="flex flex-col lg:flex-row lg:items-start justify-between gap-4">
+                <div className="flex-1 min-w-0">
+                  <div className="flex flex-wrap items-center gap-2 sm:gap-3 mb-2">
+                    <h3 className="text-base sm:text-lg font-semibold text-slate-800">{cohort.name}</h3>
                     <Badge variant={cohort.status === 'active' ? 'success' : cohort.status === 'upcoming' ? 'warning' : 'secondary'}>
                       {cohort.status}
                     </Badge>
                   </div>
                   
-                  <p className="text-slate-600 mb-3">{cohort.course}</p>
+                  <p className="text-slate-600 mb-3 text-sm sm:text-base">{cohort.course}</p>
                   
-                  <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-slate-600">
+                  <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3 sm:gap-4 text-sm text-slate-600">
                     <div className="flex items-center gap-2">
-                      <Users size={16} />
+                      <Users size={16} className="shrink-0" />
                       {cohort.students}/{cohort.maxStudents} students
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Clock size={16} />
-                      {cohort.schedule}
+                    <div className="flex items-center gap-2 min-w-0">
+                      <Clock size={16} className="shrink-0" />
+                      <span className="truncate">{cohort.schedule}</span>
                     </div>
-                    <div className="flex items-center gap-2">
-                      <Calendar size={16} />
-                      {cohort.startDate} - {cohort.endDate}
+                    <div className="flex items-center gap-2 min-w-0">
+                      <Calendar size={16} className="shrink-0" />
+                      <span className="truncate">{cohort.startDate} - {cohort.endDate}</span>
                     </div>
                   </div>
                   
@@ -97,11 +97,11 @@ export default function AdminCohorts() {
                   </div>
                 </div>
 
-                <div className="flex flex-col gap-2">
-                  <Button variant="outline" size="sm">
+                <div className="flex flex-row lg:flex-col gap-2 shrink-0">
+                  <Button variant="outline" size="sm" className="flex-1 lg:flex-none">
                     Manage
                   </Button>
-                  <Button variant="ghost" size="sm">
+                  <Button variant="ghost" size="sm" className="flex-1 lg:flex-none">
                     View Details
                   </Button>
                 </div>

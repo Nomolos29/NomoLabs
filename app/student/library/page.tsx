@@ -107,7 +107,7 @@ export default function StudentLibrary() {
       userAvatar="https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?w=200&h=200&fit=crop"
       userEmail="david.okafor@example.com"
     >
-      <div className="p-8 bg-slate-50 min-h-screen">
+      <div className="p-4 sm:p-6 lg:p-8 bg-slate-50 min-h-screen">
         <div className="mb-6">
           <h1 className="text-lg font-semibold text-slate-800">Study Library</h1>
         </div>
@@ -124,7 +124,7 @@ export default function StudentLibrary() {
                 icon={Search}
               />
             </div>
-            <div className="flex gap-2">
+            <div className="flex flex-wrap gap-2">
               {categories.map((category) => (
                 <Button
                   key={category}
@@ -153,21 +153,21 @@ export default function StudentLibrary() {
                   </div>
                   
                   <div className="flex-1 min-w-0">
-                    <div className="flex items-center gap-2 mb-2">
-                      <h3 className="text-lg font-semibold text-slate-800 truncate">{material.title}</h3>
+                    <div className="flex flex-wrap items-center gap-2 mb-2">
+                      <h3 className="text-base sm:text-lg font-semibold text-slate-800 break-words">{material.title}</h3>
                       <Badge variant="secondary">{material.type.toUpperCase()}</Badge>
                     </div>
                     
                     <p className="text-slate-600 text-sm mb-3 line-clamp-2">{material.description}</p>
                     
-                    <div className="grid grid-cols-2 gap-4 text-xs text-slate-500 mb-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 sm:gap-4 text-xs text-slate-500 mb-4">
                       <div>Size: {material.size}</div>
                       <div>Downloads: {material.downloadCount}</div>
                       <div>Category: {material.category}</div>
                       <div>Added: {material.uploadDate}</div>
                     </div>
                     
-                    <div className="flex gap-2">
+                    <div className="flex flex-wrap gap-2">
                       <Button variant="primary" size="sm">
                         <Download size={16} />
                         Download

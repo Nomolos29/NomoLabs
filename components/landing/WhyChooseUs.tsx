@@ -1,74 +1,70 @@
 import React from 'react';
-import { Video, Users, TrendingUp, FolderKanban, Briefcase } from 'lucide-react';
+import { Video, Users, TrendingUp, FolderKanban, Briefcase, Sparkles } from 'lucide-react';
 import Container from '../layout/Container';
-import Card from '../common/Card';
 
 const WhyChooseUs = () => {
   const features = [
     {
-      icon: Video,
+      icon: Sparkles,
       title: 'AI-Powered',
       description: 'Content adapts to your learning style.',
-      color: 'text-[var(--color-primary)]',
+      tint: 'bg-[var(--color-primary)]',
     },
     {
-      icon: Users,
+      icon: Video,
       title: 'Smart Tutoring',
       description: '24/7 AI assistance and guidance.',
-      color: 'text-[var(--color-accent-orange)]',
+      tint: 'bg-[var(--color-secondary)]',
     },
     {
       icon: Users,
       title: 'Peer Learning',
       description: 'Connect with matched learning partners.',
-      color: 'text-[var(--color-accent-green)]',
+      tint: 'bg-[var(--color-accent-2)]',
     },
     {
       icon: TrendingUp,
       title: 'Smart Analytics',
       description: 'AI tracks and optimizes your progress.',
-      color: 'text-blue-600',
+      tint: 'bg-[var(--color-accent)]',
     },
     {
       icon: FolderKanban,
       title: 'Adaptive Projects',
       description: 'Projects that match your skill level.',
-      color: 'text-purple-600',
+      tint: 'bg-[var(--color-tertiary)]',
     },
     {
       icon: Briefcase,
       title: 'Career AI',
       description: 'AI-powered career guidance and tips.',
-      color: 'text-pink-600',
+      tint: 'bg-[var(--color-primary-light)]',
     },
   ];
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-16 sm:py-20 lg:py-28 bg-[var(--color-neutral-white)]">
       <Container>
-        <div className="text-center mb-12">
-          <h2 className="text-3xl font-bold mb-4">
-            Why Choose AI Learning?
-          </h2>
-          <p className="text-[var(--color-neutral-gray-500)] max-w-xl mx-auto">
+        <div className="max-w-2xl mb-12 sm:mb-16 text-center mx-auto">
+          <h2 className="mb-4">Why Choose AI Learning?</h2>
+          <p className="text-[var(--color-foreground-2)] text-base sm:text-lg">
             Personalized education that adapts to you.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {features.map((feature, index) => (
-            <Card key={index}>
-              <div className={`w-12 h-12 rounded-full bg-opacity-10 flex items-center justify-center mb-4 ${
-                feature.color === 'text-[var(--color-primary)]' ? 'bg-[var(--color-primary)]' :
-                feature.color === 'text-[var(--color-accent-orange)]' ? 'bg-[var(--color-accent-orange)]' :
-                feature.color === 'text-[var(--color-accent-green)]' ? 'bg-[var(--color-accent-green)]' :
-                'bg-blue-500'
-              }`}>
-                <feature.icon size={24} className={feature.color} />
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-10 sm:gap-y-12">
+          {features.map((feature) => (
+            <div key={feature.title} className="group">
+              <div
+                className={`w-12 h-12 rounded-full ${feature.tint} flex items-center justify-center mb-5 transition-transform duration-300 group-hover:scale-110`}
+              >
+                <feature.icon size={22} className="text-[var(--color-neutral-gray-900)]" />
               </div>
-              <h3 className="text-xl font-bold mb-2">{feature.title}</h3>
-              <p className="text-[var(--color-neutral-gray-500)]">{feature.description}</p>
-            </Card>
+              <h3 className="font-[family-name:var(--font-heading)] text-xl font-medium tracking-[-0.02em] mb-2">
+                {feature.title}
+              </h3>
+              <p className="text-[var(--color-foreground-2)] leading-relaxed">{feature.description}</p>
+            </div>
           ))}
         </div>
       </Container>

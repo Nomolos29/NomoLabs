@@ -88,7 +88,7 @@ export default function SignupPage() {
         </div>
 
         <Card variant="large">
-          <h1 className="text-3xl font-bold text-center mb-2">Create Your Account</h1>
+          <h1 className="text-2xl sm:text-3xl font-bold text-center mb-2">Create Your Account</h1>
           <p className="text-center text-[var(--color-neutral-gray-500)] mb-8">
             Join thousands of students learning new skills
           </p>

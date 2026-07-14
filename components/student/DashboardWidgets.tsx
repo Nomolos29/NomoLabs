@@ -17,7 +17,7 @@ export const DashboardWidgets: React.FC<DashboardWidgetsProps> = ({
   upcomingClasses,
 }) => {
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 mb-6 sm:mb-8">
       {/* Attendance Card */}
       <Card hover={false} className="bg-gradient-to-br from-emerald-50 to-teal-50 border border-emerald-200">
         <div className="flex items-start justify-between mb-4">
@@ -84,16 +84,16 @@ export const UpcomingClassesWidget: React.FC<UpcomingClassesWidgetProps> = ({ cl
         {classes.slice(0, 3).map((classItem) => (
           <div
             key={classItem.id}
-            className="flex items-start justify-between p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors duration-200 border border-slate-200"
+            className="flex flex-col sm:flex-row sm:items-start justify-between gap-3 p-3 sm:p-4 bg-slate-50 rounded-lg hover:bg-slate-100 transition-colors duration-200 border border-slate-200"
           >
-            <div className="flex-1">
+            <div className="flex-1 min-w-0">
               <h4 className="font-semibold text-slate-800 mb-2">{classItem.courseName}</h4>
               <p className="text-sm text-slate-600 mb-1">
                 {classItem.date} at {classItem.time}
               </p>
               <p className="text-xs text-slate-500">Instructor: {classItem.instructor}</p>
             </div>
-            <Button variant="primary" size="sm" className="bg-blue-600 hover:bg-blue-700 text-white">
+            <Button variant="primary" size="sm" className="bg-blue-600 hover:bg-blue-700 text-white w-full sm:w-auto shrink-0">
               Join
             </Button>
           </div>
@@ -138,9 +138,9 @@ export const RecentScoresWidget: React.FC<RecentScoresWidgetProps> = ({ scores }
       <div className="space-y-4">
         {scores.slice(0, 3).map((quiz) => (
           <div key={quiz.id} className="space-y-2">
-            <div className="flex justify-between items-center">
-              <h4 className="font-semibold text-slate-800">{quiz.quizName}</h4>
-              <span className={`text-xl font-bold ${getScoreTextColor(quiz.score)}`}>{quiz.score}%</span>
+            <div className="flex justify-between items-center gap-3">
+              <h4 className="font-semibold text-slate-800 truncate">{quiz.quizName}</h4>
+              <span className={`text-xl font-bold shrink-0 ${getScoreTextColor(quiz.score)}`}>{quiz.score}%</span>
             </div>
             <div className="bg-slate-100 h-2 rounded-full overflow-hidden">
               <div className={`bg-gradient-to-r ${getScoreColor(quiz.score)} h-full rounded-full transition-all duration-500`} style={{width: `${quiz.score}%`}}></div>
