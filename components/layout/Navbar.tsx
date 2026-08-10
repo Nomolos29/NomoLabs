@@ -6,7 +6,11 @@ import { Menu, X } from 'lucide-react';
 import Container from './Container';
 import Button from '../common/Button';
 
-const Navbar = () => {
+interface NavbarProps {
+  embedded?: boolean;
+}
+
+const Navbar = ({ embedded = false }: NavbarProps) => {
   const [isOpen, setIsOpen] = useState(false);
 
   const navLinks = [
@@ -19,22 +23,49 @@ const Navbar = () => {
   ];
 
   return (
-    <nav className="sticky top-0 z-50 border-b border-[var(--color-neutral-bg-3)]/80 bg-[color-mix(in_srgb,var(--color-neutral-white)_82%,transparent)] backdrop-blur-md">
-      <Container>
-        <div className="flex justify-between items-center py-3 sm:py-4 gap-3">
+    <nav
+      className={
+        embedded
+          ? 'relative z-10'
+          : 'sticky top-0 z-50 border-b border-[var(--color-neutral-bg-3)]/80 bg-[color-mix(in_srgb,var(--color-neutral-white)_82%,transparent)] backdrop-blur-md'
+      }
+    >
+      <Container className={embedded ? 'max-w-none px-5 sm:px-8 lg:px-10 xl:px-14' : undefined}>
+        <div
+          className={`flex justify-between items-center gap-3 ${
+            embedded ? 'py-5 sm:py-6 lg:py-7' : 'py-3 sm:py-4'
+          }`}
+        >
           <Link
             href="/"
-            className="font-[family-name:var(--font-heading)] text-2xl sm:text-[1.75rem] font-medium tracking-[-0.03em] text-[var(--color-neutral-gray-900)] shrink-0"
+            className="relative font-[family-name:var(--font-heading)] text-2xl sm:text-[1.85rem] font-medium tracking-[-0.03em] text-[#1a1a1a] shrink-0"
           >
             Nomolabs
+            {embedded && (
+              <svg
+                className="absolute -bottom-0.5 left-0 w-[58%] h-2.5 pointer-events-none"
+                viewBox="0 0 100 10"
+                fill="none"
+                preserveAspectRatio="none"
+                aria-hidden
+              >
+                <path
+                  d="M2 7 C 22 2, 42 8, 98 5"
+                  stroke="#7ed8f5"
+                  strokeWidth="3.5"
+                  strokeLinecap="round"
+                  fill="none"
+                />
+              </svg>
+            )}
           </Link>
 
-          <div className="hidden lg:flex items-center gap-6 xl:gap-8">
+          <div className="hidden lg:flex items-center gap-5 xl:gap-7">
             {navLinks.map((link) => (
               <Link
                 key={link.path}
                 href={link.path}
-                className="text-[var(--color-foreground-2)] hover:text-[var(--color-neutral-gray-900)] transition-colors font-medium text-sm xl:text-[0.95rem] whitespace-nowrap"
+                className="text-[#1a1a1a]/80 hover:text-[#1a1a1a] transition-colors font-medium text-sm xl:text-[0.95rem] whitespace-nowrap"
               >
                 {link.name}
               </Link>
@@ -43,10 +74,24 @@ const Navbar = () => {
 
           <div className="hidden lg:flex items-center gap-2 xl:gap-3 shrink-0">
             <Link href="/login">
-              <Button variant="ghost">Login</Button>
+              <Button
+                variant="ghost"
+                className={embedded ? 'hover:bg-[#f3ede9] text-[#1a1a1a]' : undefined}
+              >
+                Login
+              </Button>
             </Link>
             <Link href="/signup">
-              <Button variant="primary">Sign Up</Button>
+              <Button
+                variant={embedded ? 'secondary' : 'primary'}
+                className={
+                  embedded
+                    ? 'bg-[#f4a27a] hover:bg-[#e8926a] text-[#1a1a1a] border-0 shadow-none px-5 sm:px-6'
+                    : undefined
+                }
+              >
+                Sign Up
+              </Button>
             </Link>
           </div>
 
@@ -62,7 +107,7 @@ const Navbar = () => {
         </div>
 
         {isOpen && (
-          <div className="lg:hidden py-4 border-t border-[var(--color-neutral-bg-3)]">
+          <div className={`lg:hidden py-4 ${embedded ? 'border-t border-[#ece5e1]' : 'border-t border-[var(--color-neutral-bg-3)]'}`}>
             {navLinks.map((link) => (
               <Link
                 key={link.path}
